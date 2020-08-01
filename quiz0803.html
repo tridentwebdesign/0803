@@ -56,15 +56,24 @@
         //     })
         // });
 
+        //要素の取得方法が嫌
         new Vue({
             el: '#app',
+            data: {
+                status: false
+            },
             methods: {
                 sound: function () {
-                    console.log('click')
+                    if (this.status) {
+                        this.$el.children[2].pause()
+                        this.status = false
+
+                    } else {
+                        this.$el.children[2].play()
+                        this.status = true
+                    }
                 }
             }
-
-
         })
 
     </script>
